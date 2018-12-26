@@ -1,0 +1,19 @@
+#insatall Packager
+install.packages("AnalyzeTS")
+library(AnalyzeTS)
+install.packages("rlang")
+library(rlang)
+install.packages("forecast")
+library(forecast)
+
+#Input Data
+consumer<- read.csv("D:\\KULIAH\\SEMESTER V\\ARW\\FUZZY UAS\\edit.csv")
+consumer
+
+#Membuat Data Time Series
+consumer.ts<- ts(consumer$value, start= c(1989,1), frequency = 12)
+consumer.ts
+
+#Prediksi
+Prediksi= Gfuzzy.ts1(consumer.ts, D1=8, D2=0.355, n=9, type="Chen", plot=TRUE, grid=TRUE)
+Prediksi
